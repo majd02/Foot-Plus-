@@ -6,12 +6,12 @@ import com.Suptech.Entite.produit;
 import com.Suptech.Utils.DataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.Suptech.IService.IServiceproduit;
+import java.sql.ResultSet;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -88,7 +88,7 @@ statement.setString(4, p.getImage());
 List<produit> arr=new ArrayList<>();
     ste=con.createStatement();
    
-    ResultSet rs=ste.executeQuery("select * from produit");
+    ResultSet  rs=ste.executeQuery("select * from produit");
      while (rs.next()) {                
                int id=rs.getInt(1);
                String nom=rs.getString("nom");

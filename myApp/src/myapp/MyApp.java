@@ -6,7 +6,9 @@
 package myapp;
 
 import com.Suptech.Entite.produit;
+import com.Suptech.Entite.promotion;
 import com.Suptech.Service.Serviceproduit;
+import com.Suptech.Service.Servicepromotion;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,32 +19,39 @@ public class MyApp {
 
     /**
      * @param args the command line arguments
+     * @throws java.sql.SQLException
      */
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
         System.out.print("hello world");
         
          Serviceproduit ser = new Serviceproduit();
+          Servicepromotion serv = new Servicepromotion();
         
             /* ajouter produuit */    
       
         
-      // produit p =new produit("ballon",2500,"gjhhlh","80000");
+      // produit p =new produit("badis",500,"bhimmm","897997");
        // ser.ajouter(p);
+       // promotion p =new promotion("badis", "0212-2021","02-12-2021" ,"897997",500);
+       // System.err.println("hhhhh");
+      //  serv.ajouter(p);
         
             /* fin ajout*/
       
                /*afficher liste des produit*/
       
-     // List<produit> pp =  new ArrayList<>();
+      //List<produit> pp =  new ArrayList<>();
     // pp=  ser.readAll();
-    //  System.out.print(pp);
+     // System.out.print(pp);
     
               /*fin liste produit*/
               
       /*delete produit*/
       
-      //ser.delete(3);
+     // ser.delete(11);
+     
+
            
 
 
@@ -54,7 +63,7 @@ public class MyApp {
       //ser.update(p5);
       
       /*fin update*/
-       //pp= ser.trier();
+      // pp= ser.trier();
      
      //System.out.print(pp);
       /*trie*/

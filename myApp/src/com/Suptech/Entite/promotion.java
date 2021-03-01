@@ -5,7 +5,6 @@
  */
 package com.Suptech.Entite;
 
-import java.sql.Date;
 
 /**
  *
@@ -14,24 +13,27 @@ import java.sql.Date;
 public class promotion {
      private int id_promo;
     private String nom_promo;
-    private Date debut_date;
-    private Date fin_date;
+    private String debut_date;
+    private String fin_date;
     private String desc_promo ;
     private double pourcentage ; 
     
+    public promotion(){
+        
+    }
     
-public promotion (int id_promo, String nom_promo, Date debut_promo, Date fin_promo , String desc_promo, double pourcentage) {
+public promotion (int id_promo, String nom_promo, String debut_date, String fin_date, String desc_promo, double pourcentage) {
         this.id_promo = id_promo;
         this.nom_promo = nom_promo;
-        this.debut_date = debut_promo;
-        this.fin_date = fin_promo;
+        this.debut_date = debut_date;
+        this.fin_date = fin_date;
         this.desc_promo =desc_promo;
         this.pourcentage =pourcentage;
 
 
     }
 
-    public promotion(String nom_promo, Date debut_promo, Date fin_promo, String desc_promo, double pourcentage) {
+    public promotion(String nom_promo, String debut_date, String fin_date, String desc_promo, double pourcentage) {
         this.nom_promo = nom_promo;
         this.debut_date = debut_date;
         this.fin_date = fin_date;
@@ -55,19 +57,19 @@ public promotion (int id_promo, String nom_promo, Date debut_promo, Date fin_pro
         this.nom_promo = nom_promo;
     }
 
-    public Date getDebut_date() {
+    public String getDebut_date() {
         return debut_date;
     }
 
-    public void setDebut_date(Date debut_date) {
+    public void setDebut_date(String debut_date) {
         this.debut_date = debut_date;
     }
 
-    public Date getFin_date() {
+    public String getFin_date() {
         return fin_date;
     }
 
-    public void setFin_date(Date fin_date) {
+    public void setFin_date(String fin_date) {
         this.fin_date = fin_date;
     }
 
