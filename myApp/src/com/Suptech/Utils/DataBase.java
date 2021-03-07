@@ -5,9 +5,15 @@
  */
 package com.Suptech.Utils;
 
+import com.Suptech.Entite.produit;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javax.swing.JOptionPane;
 
 /**
  */
@@ -34,6 +40,35 @@ public class DataBase {
     {if(db==null)
         db=new DataBase();
     return db;
-    }     
+    }   
+       public static Connection ConnectDb(){
+        try {
+            
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/esprit","root","");
+           // JOptionPane.showMessageDialog(null, "Connection Established");
+            return conn;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+    }
+        
+    
+     public static ObservableList<produit> getDataProduit(){
+        Connection conn = ConnectDb();
+        ObservableList<produit> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps;
+            ps = conn.prepareStatement("select * from produit");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new produit(rs.getInt("id") ,rs.getString("nom"),  Double.parseDouble(rs.getString("prix")), rs.getString("desc"), rs.getString("image")));               
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+       
     
 }

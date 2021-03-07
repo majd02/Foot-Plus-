@@ -36,7 +36,7 @@ public class Serviceproduit implements IServiceproduit<produit> {
     @Override
     public void ajouter(produit p) throws SQLException {
         
-        PreparedStatement pre=con.prepareStatement("INSERT INTO `produit` (`nom`,`prix`,`desc`,`image`) VALUES ( ?, ?, ?, ?)");
+        PreparedStatement pre=con.prepareStatement("INSERT INTO `produit`(`nom`,`prix`,`desc`,`image`) VALUES ( ?, ?, ?, ?)");
     pre.setString(1, p.getNom()); 
     pre.setDouble(2, p.getPrix());
     pre.setString(3, p.getDesc());
@@ -54,7 +54,7 @@ try{
         String requesteDelete=" DELETE FROM produit where id ='"+ id +"'" ;
         ste.executeUpdate(requesteDelete);
         System.out.println("produit supprimer");
-      } catch(Exception ex){
+      } catch(SQLException ex){
           System.err.println("ex");
       
       }
@@ -122,6 +122,10 @@ List<produit> arr=new ArrayList<>();
      arr.add(p);
      }
     return arr;        
+    }
+
+    public int deleteproduit(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

@@ -10,8 +10,7 @@ import com.Suptech.Entite.promotion;
 import com.Suptech.Service.Serviceproduit;
 import com.Suptech.Service.Servicepromotion;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  */
@@ -31,11 +30,11 @@ public class MyApp {
             /* ajouter produuit */    
       
         
-      // produit p =new produit("badis",500,"bhimmm","897997");
-       // ser.ajouter(p);
-       // promotion p =new promotion("badis", "0212-2021","02-12-2021" ,"897997",500);
-       // System.err.println("hhhhh");
-      //  serv.ajouter(p);
+      produit p =new produit("badis",500,"bhimmm","897997");
+       ser.ajouter(p);
+        
+       promotion pr =new promotion("badis", "0212-2021","02-12-2021" ,"897997",500);
+        serv.ajouter(pr);
         
             /* fin ajout*/
       
