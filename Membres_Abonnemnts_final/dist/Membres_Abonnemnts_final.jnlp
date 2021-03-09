@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Membres_Abonnemnts_final.jnlp">
+  <information>
+    <title>Membres_Abonnemnts_final</title>
+    <vendor>Youssef</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Membres_Abonnemnts_final.jar" size="11841" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Membres_Abonnemnts_final" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="membres_abonnemnts_final.Membres_Abonnemnts_final"  name="Membres_Abonnemnts_final" />
+  <update check="always"/>
+</jnlp>
