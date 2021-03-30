@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="image" prefHeight="494.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.LoginInterfaceController">
+   <children>
+      <TextField fx:id="emailtf" layoutX="107.0" layoutY="81.0" />
+      <TextField fx:id="tfname" layoutX="480.0" layoutY="57.0" />
+      <TextField fx:id="tflastname" layoutX="480.0" layoutY="89.0" />
+      <TextField fx:id="tfemail" layoutX="480.0" layoutY="120.0" />
+      <TextField fx:id="tfpwd" layoutX="480.0" layoutY="151.0" />
+      <TextField fx:id="tfgender" layoutX="480.0" layoutY="182.0" />
+      <TextField fx:id="tfphone" layoutX="480.0" layoutY="244.0" />
+      <TextField fx:id="tfbirthday" layoutX="480.0" layoutY="275.0" />
+      <Text layoutX="407.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :" />
+      <Text layoutX="407.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname :" />
+      <Text layoutX="409.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :" />
+      <Text layoutX="407.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :" />
+      <Text layoutX="402.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender :" />
+      <Text layoutX="405.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image :" />
+      <Text layoutX="404.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone :" />
+      <Text layoutX="398.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday :" />
+      <Button fx:id="tfphoto" layoutX="481.0" layoutY="213.0" mnemonicParsing="false" onAction="#uploadphoto" prefHeight="31.0" prefWidth="187.0" text="Upload" />
+      <Button layoutX="541.0" layoutY="346.0" mnemonicParsing="false" onAction="#signup" text="Signup" />
+      <Button layoutX="146.0" layoutY="181.0" mnemonicParsing="false" onAction="#signin" text="Signin" />
+      <Text layoutX="27.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :" />
+      <Text layoutX="14.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password :" />
+      <PasswordField fx:id="pwdtf" layoutX="107.0" layoutY="131.0" />
+   </children>
+</AnchorPane>
