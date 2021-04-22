@@ -1,0 +1,88 @@
+{% extends 'baseF.html.twig' %}
+
+
+{% block title %}liste Reclamations{% endblock %}
+{% block container %}
+    {% block name %}Reclamations{% endblock %}
+     {% block body %}
+    <h1>Reclamation index</h1>
+         <h1>Trouver une reclamation</h1>
+         <form>
+         <div class="container my-2">
+             <input class="col-10" type="text" name="AfficherClasse" onkeyup="myFunction()" placeholder="Nom (EX:majd)" id="myInput">
+         </div>
+         </form>
+         <table class="table" id="mytable">
+             <thead>
+            <tr>
+                <th>Type</th>
+                <th>Ido</th>
+                <th>Sujet</th>
+                <th>Description</th>
+
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        <a href="{{ path('reclamationf_new') }}"><button>Reclamer de nouveau!</button></a>
+        {% for reclamation in reclamations %}
+            <tr>
+
+                <td>
+                    <span>{{ reclamation.type }} </span>
+                </td>
+                <td>{{ reclamation.ido }}</td>
+                <td>{{ reclamation.sujet }}</td>
+                <td>{{ reclamation.description }}</td>
+
+                <td>
+                    <a href="{{ path('reclamationf_show', {'id': reclamation.id}) }}"><button>details</button></a>
+                    <a href="{{ path('reclamationf_edit', {'id': reclamation.id}) }}"><button>modifier</button></a>
+                    {{ include('reclamationf/_delete_form.html.twig') }}  </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+         <div class="pagination">
+             {{ knp_pagination_render(reclamations) }}
+         </div>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+         <script src="{{asset('web/js/vendor/recherche.js') }}"></script>
+<script>
+
+
+         id="mytable"
+         function myFunction() {
+var input, filter, table, tr, td, i,j, txtValue;
+input = document.getElementById("myInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("mytable");
+tr = table.getElementsByTagName("tr");
+//   alert(td.length);
+             for (i = 0; i < tr.length; i++) {
+                 td= tr[i].getElementsByTagName("td")[1];
+                 if (td) {
+                     txtValue = td.textContent || td.innerText;
+                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                         tr[i].style.display = "";
+                     } else {
+                         tr[i].style.display = "none";
+                     }
+                 }
+
+}
+
+}
+
+
+</script>
+     {% endblock %}
+{% endblock %}

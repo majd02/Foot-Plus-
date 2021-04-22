@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reclamation{% endblock %}
+
+{% block body %}
+    <h1>Reclamation</h1>
+    <a href="{{ path('reclamation_index') }}" class="btn btn-success btn-sm"  href="https://startbootstrap.com/theme/sb-admin-pro">Reclamation</a>
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reclamation.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ reclamation.type }}</td>
+            </tr>
+            <tr>
+                <th>Ido</th>
+                <td>{{ reclamation.ido }}</td>
+            </tr>
+            <tr>
+                <th>Sujet</th>
+                <td>{{ reclamation.sujet }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ reclamation.description }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ reclamation.date ? reclamation.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ reclamation.etat }}</td>
+            </tr>
+            <tr>
+                <th>Idu</th>
+                <td>{{ reclamation.idu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    {{ include('reclamation/Accept.html.twig')  }} {{ include('reclamation/Reject.html.twig') }}
+    {{ include('reclamation/Done.html.twig') }}
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Feedback index{% endblock %}
+
+{% block body %}
+    <h1>Feedback index</h1>
+    <a href="{{path('TrierParRateDESC') }} " class="btn btn-success btn-sm"  href="https://startbootstrap.com/theme/sb-admin-pro"><i class="align-middle" ></i>trier par date</a>
+    <div class="container my-2">
+        <input class="col-10" type="text" name="AfficherClasse" onkeyup="myFunction()" placeholder="Description search" id="myInput">
+    </div>
+    <div class="container my-2">
+        <input class="col-10" type="text" name="AfficherClasse" onkeyup="myFunction1()" placeholder="rate search" id="myInput">
+    </div>
+    <table class="table" id="mytable">
+        <thead>
+            <tr>
+
+                <th>Description</th>
+                <th>Rate</th>
+                <th>Idu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for feedback in feedback %}
+            <tr>
+                <td>{{ feedback.description }}</td>
+                <td>{{ feedback.rate }}</td>
+                <td>{{ feedback.idu }}</td>
+                <td>
+                    <a href="{{ path('feedback_show', {'id': feedback.id}) }}"><button>show</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script>
+
+
+        id="mytable"
+        function myFunction() {
+            var input, filter, table, tr, td, i,j, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("mytable");
+            tr = table.getElementsByTagName("tr");
+//   alert(td.length);
+            for (i = 0; i < tr.length; i++) {
+                td= tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+
+            }
+
+        }
+
+
+    </script>
+    <script>
+
+
+        id="mytable"
+        function myFunction1() {
+            var input, filter, table, tr, td, i,j, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("mytable");
+            tr = table.getElementsByTagName("tr");
+//   alert(td.length);
+            for (i = 0; i < tr.length; i++) {
+                td= tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+
+            }
+
+        }
+
+
+    </script>
+
+{% endblock %}

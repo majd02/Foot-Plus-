@@ -1,0 +1,6 @@
+front/new:
+  path: /reclamationf_new
+  controller: App\Controller\ReclamationController::new
+#front/new:
+  #  path: /feedbackf_new
+  #  controller: App\Controller\FeedbackController::new
