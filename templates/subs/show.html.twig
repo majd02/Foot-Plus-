@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subs{% endblock %}
+
+{% block body %}
+    <h1>Subs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>NumSub</th>
+                <td>{{ sub.numSub }}</td>
+            </tr>
+            <tr>
+                <th>UserId</th>
+                <td>{{ sub.userId }}</td>
+            </tr>
+            <tr>
+                <th>StadeId</th>
+                <td>{{ sub.stadeId }}</td>
+            </tr>
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ sub.dateDebut ? sub.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFin</th>
+                <td>{{ sub.dateFin ? sub.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ sub.prix }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ sub.photo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('subs_index') }}">back to list</a>
+
+    <a href="{{ path('subs_edit', {'numSub': sub.numSub}) }}">edit</a>
+
+    {{ include('subs/_delete_form.html.twig') }}
+{% endblock %}

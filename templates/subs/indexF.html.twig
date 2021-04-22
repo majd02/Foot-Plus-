@@ -1,0 +1,45 @@
+{% extends 'baseF.html.twig' %}
+
+{% block title %}Subs index{% endblock %}
+
+{% block body %}
+    <h1>Subs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NumSub</th>
+                <th>UserId</th>
+                <th>StadeId</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>Prix</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sub in subs %}
+            <tr>
+                <td>{{ sub.numSub }}</td>
+                <td>{{ sub.userId }}</td>
+                <td>{{ sub.stadeId }}</td>
+                <td>{{ sub.dateDebut ? sub.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ sub.dateFin ? sub.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ sub.prix }}</td>
+                <td>{{ sub.photo }}</td>
+                <td>
+                    <a href="{{ path('subs_show', {'numSub': sub.numSub}) }}">show</a>
+                    <a href="{{ path('subs_edit', {'numSub': sub.numSub}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('subs_new') }}">Create new</a>
+{% endblock %}

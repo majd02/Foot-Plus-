@@ -1,0 +1,11 @@
+{% extends 'baseF.html.twig' %}
+
+{% block title %}New Subs{% endblock %}
+
+{% block body %}
+    <h1>Create new Subs</h1>
+
+    {{ include('subs/_formF.html.twig') }}
+
+    <a href="{{ path('subs_index') }}">back to list</a>
+{% endblock %}

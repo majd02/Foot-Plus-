@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subs index{% endblock %}
+
+{% block body %}
+
+{#<table class="table table-bordered dataTable" id="table" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">#}
+    <h1>Subs index</h1>
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <input type="text" id="search" placeholder="chercher user" class="search-int form-control">
+    <table class="table" id="table" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>NumSub</th>
+                <th>UserId</th>
+                <th>StadeId</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>Prix</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sub in subs %}
+            <tr>
+                <td>{{ sub.numSub }}</td>
+                <td>{{ sub.userId }}</td>
+                <td>{{ sub.stadeId }}</td>
+                <td>{{ sub.dateDebut ? sub.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ sub.dateFin ? sub.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ sub.prix }}</td>
+                <td>{{ sub.photo }}</td>
+                <td>
+                    <a href="{{ path('subs_show', {'numSub': sub.numSub}) }}">show</a>
+                    <a href="{{ path('subs_edit', {'numSub': sub.numSub}) }}">edit</a>
+                </td>
+            </tr>
+            <script>
+                $(document).ready(function(){
+                    $('#search').keyup(function(){
+                        search_table($(this).val());
+                    });
+                    function search_table(value){
+                        $('#table tbody tr').each(function(){
+                            var found = 'false';
+                            $(this).each(function(){
+                                if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                {
+                                    found = 'true';
+                                }
+                            });
+                            if(found == 'true')
+                            {
+                                $(this).show();
+
+                            }
+                            else
+                            {
+                                $(this).hide();
+
+                            }
+                        });
+                    }
+                });
+            </script>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('subs_new') }}">Create new</a>
+{% endblock %}
